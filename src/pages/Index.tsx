@@ -80,7 +80,6 @@ const Index = () => {
         <Timeline events={events} onImageClick={setSelectedImage} />
         <PhotoGallery />
         <LoveReasons />
-        <SpecialPlaces />
         <div onClick={handleSurpriseClick}>
           <SurpriseCard />
         </div>
