@@ -1,0 +1,74 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 351 100% 97%;
+    --foreground: 0 0% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+    --primary: 351 100% 92%;
+    --primary-foreground: 0 0% 20%;
+    --secondary: 24 89% 91%;
+    --secondary-foreground: 0 0% 20%;
+    --muted: 351 100% 95%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 351 100% 92%;
+    --accent-foreground: 0 0% 20%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 24 89% 91%;
+    --radius: 1rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+.timeline-card {
+  @apply relative p-6 bg-white/80 backdrop-blur-sm rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl;
+}
+
+.timeline-card::before {
+  content: '';
+  @apply absolute w-4 h-4 bg-romantic-rose rounded-full -left-[34px] top-1/2 transform -translate-y-1/2;
+}
+
+.modal-overlay {
+  @apply fixed inset-0 bg-black/60 backdrop-blur-sm z-50 opacity-0 transition-opacity duration-300;
+}
+
+.modal-overlay.show {
+  @apply opacity-100;
+}
+
+.modal-content {
+  @apply fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl p-4 shadow-2xl z-50 scale-95 opacity-0 transition-all duration-300;
+}
+
+.modal-content.show {
+  @apply scale-100 opacity-100;
+}
+
+.rose-petal {
+  @apply fixed pointer-events-none opacity-0;
+  animation: float-petal 10s linear infinite;
+}
